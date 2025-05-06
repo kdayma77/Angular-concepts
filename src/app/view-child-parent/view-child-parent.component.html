@@ -1,0 +1,5 @@
+<app-view-child-childeren *ngFor="let item of items"></app-view-child-childeren>
+<div *ngFor="let post of dataService.posts$ | async">
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.body }}</p>
+  </div>

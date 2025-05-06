@@ -1,0 +1,64 @@
+// .container {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-evenly;
+//     height: 400px;
+//     align-items: center;
+//     flex-wrap: wrap;
+// }
+
+// .fitem {
+//     background-color: red;
+//     height: 122px;
+//     width: 122px;
+//     border: 2px solid black;
+//     margin: 15px;
+// }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(auto,auto));//instead of 3 yoou can also use autofit
+    gap: 16px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    }
+}
+
+.fitem1 {
+    background: violet;
+    border: 2px solid black;
+    height: 230px;
+}
+
+.fitem2 {
+    background: indigo;
+    border: 2px solid black;
+    height: 230px;
+}
+
+.fitem3 {
+    background: blue;
+    border: 2px solid black;
+    height: 230px;
+}
+
+.fitem4 {
+    background: orange;
+    border: 2px solid black;
+    height: 230px;
+}
+
+.fitem5 {
+    background: yellow;
+    border: 2px solid black;
+    height: 230px;
+}
+
+.fitem6 {
+    background: red;
+    border: 2px solid black;
+    height: 230px;
+}

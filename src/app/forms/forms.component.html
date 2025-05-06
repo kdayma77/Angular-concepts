@@ -1,0 +1,40 @@
+<p>forms works!</p>
+<button class="btn btn-primary" (click)="enableReactiveForm()">Reactive Form</button>
+<button class="btn btn-primary" style="margin-left: 15px;" (click)="enableTemplateForm()">Template Form</button>
+<div *ngIf="enableReactive">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input
+            type="email"
+            formControlName="userName"
+            class="form-control"
+            appAutoFocus
+            [ngClass]="{
+                'is-invalid': form.controls?.['userName']?.errors && form.controls?.['userName']?.touched
+              }"
+            />
+            {{ form?.controls?.['userName']?.errors | json }}
+            {{ form.controls?.['userName']?.touched }}
+            <div *ngIf="form.controls?.['userName']?.touched" class="text-danger">
+                <span *ngIf="form.controls?.['userName']?.errors?.['required']">Fullname is required</span>
+                <span *ngIf="form.controls?.['userName']?.errors?.['email']">pattern dont match</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            />
+            <div *ngIf="form.controls?.['password']?.touched" class="text-danger">
+                <span *ngIf="form.controls?.['password']?.errors?.['required']">password is required</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div *ngIf="enableTemplate">
+    @defer() {
+        <app-template-form #tempRef></app-template-form>
+    }
+</div>

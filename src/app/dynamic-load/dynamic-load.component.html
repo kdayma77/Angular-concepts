@@ -1,0 +1,35 @@
+<button class="btn btn-primary" (click)="createComponent()">Generate Component</button>
+<button class="btn btn-danger" style="margin-left: 15px;" (click)="delteComponent()">Delete Component</button>
+<button class="btn btn-warning" style="margin-left: 15px;" (click)="renderTemplate()">Render Template</button>
+<button class="btn btn-warning" style="margin-left: 15px;" (click)="changeText()">update text</button>
+<div class="card-grid">
+    <ng-container #container></ng-container>
+</div>
+<ng-template #myTemplate>
+    <p>This is a reusable block of template.</p>
+</ng-template>
+<p #myPara>Hello From ELementref</p>
+<ul>
+    <ng-template ngFor let-hero [ngForOf]="colors">
+      <li #myList>{{hero}}</li>
+    </ng-template>
+</ul>
+
+<ng-template #guestTemplate>
+    <p>Hello, guest! Please log in.</p>
+  </ng-template>
+  
+  <ng-template #memberTemplate let-user="user">
+    <p>Welcome back, {{ user.name }}!</p>
+  </ng-template>
+  
+  <!-- Buttons to switch -->
+  <button (click)="isMember = false">Guest</button>
+  <button (click)="isMember = true">Member</button>
+  
+  <!-- Render template dynamically -->
+  <ng-container 
+    *ngTemplateOutlet="isMember ? memberTemplate : guestTemplate; context: { user: currentUser }">
+  </ng-container>
+  
+  

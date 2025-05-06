@@ -1,0 +1,20 @@
+<p>parent works!</p>
+<input
+          type="text"
+          #val
+        />
+<button (click)="onSubmit(val)">click</button>
+@defer(on interaction(val)) {
+  <app-child [message]="data" (emitEvent)="testOutput($event)">
+    <div><strong>ngContentChecked</strong> {{ data }}</div>
+  </app-child>
+}
+@placeholder {
+  <div>this is placeholder for defer</div>
+}
+
+{{ outputData }}
+<ng-container *ngComponentOutlet="
+        currentAd.component;
+        inputs: currentAd.inputs;
+      " />

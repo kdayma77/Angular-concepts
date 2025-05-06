@@ -1,0 +1,27 @@
+.test-extend {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.test {
+    @extend .test-extend;
+    margin: 10px;
+    padding: 1px;
+}
+
+@mixin testFun($fontW) {
+    font-weight: $fontW;
+    font-size: 13px;
+}
+
+.testFunction {
+    @include testFun(700);
+    font-style: italic;
+}
+
+div {
+    min-height: 100px;
+    min-width: 100px;
+    border: 1px solid black;
+    padding: 25px;
+}
